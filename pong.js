@@ -21,7 +21,7 @@ const BOT_Y = GAME_HEIGHT;
 /* Entities in the game */
 var player = new Player();
 var computer = new Computer();
-var ball = new Ball(GAME_WIDTH/2, GAME_HEIGHT/2 + getRandomInt(40, 250));
+var ball = new Ball(GAME_WIDTH/2, GAME_HEIGHT/2 + getRandomInt(40, 150));
 var playerScore = 0;
 var computerScore = 0;
 
