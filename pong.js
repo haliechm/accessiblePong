@@ -31,6 +31,8 @@ var bot = true;
 var noChoiceMadeYet = true;
 var rightAfter = true;
 
+var hitAudio;
+
 
 
 
@@ -213,6 +215,7 @@ Ball.prototype.update = function(paddle1, paddle2) {
     if (top_y < (paddle1.y + paddle1.height) && bottom_y > paddle1.y
       && top_x < (paddle1.x + paddle1.width) && bottom_x > paddle1.x) {
       // hit the player's paddle
+      hitAudio.play();
       this.x_speed = 6;
            console.log("______88_" + this.y_speed);
         console.log("ccccccccc" + paddle1.y_speed);
@@ -240,6 +243,7 @@ Ball.prototype.update = function(paddle1, paddle2) {
     if (top_y < (paddle2.y + paddle2.height) && bottom_y > paddle2.y
       && top_x < (paddle2.x + paddle2.width) && bottom_x > paddle2.x) {
       // hit the computer's paddle
+      hitAudio.play();
       this.x_speed = -6;
          console.log("_______" + this.y_speed);
             this.y_speed += (paddle2.y_speed / 2);
@@ -328,6 +332,9 @@ window.onload = function() {
     
      document.getElementById("top").addEventListener("click", togglePosition);
     document.getElementById("bottom").addEventListener("click", choosePosition);
+  
+  hitAudio = new Audio('hit.mp3');
+    hitAudio.volume = .6;
 };
 
 var step = function() {
