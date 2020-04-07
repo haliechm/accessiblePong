@@ -32,6 +32,7 @@ var noChoiceMadeYet = true;
 var rightAfter = true;
 
 var hitAudio;
+var missAudio;
 
 
 
@@ -182,6 +183,7 @@ Ball.prototype.update = function(paddle1, paddle2) {
 
   // A point was scored, reset the ball
   if (this.x < 0 || this.x > GAME_WIDTH) {
+    missAudio.play();
     if (this.x < 0) {
         computerScore += 1;
         document.getElementById("computerScore").innerHTML = computerScore;
@@ -335,6 +337,8 @@ window.onload = function() {
   
   hitAudio = new Audio('hit.mp3');
     hitAudio.volume = .6;
+  missAudio = new Audio('miss.mp3');
+    missAudio.volume = .6;
 };
 
 var step = function() {
